@@ -3,7 +3,8 @@ package TaskWorkParamEmp2;
 import java.util.*;
 
 
-public class Departemnt<T extends Employee> {
+public class Departemnt<T extends Employee> extends StringComparator{
+
     //    - СОТРУДНИКИ
 //    Есть иерархия сотрудников
 //    менеджеры, мидлы, джуны, сеньоры, тим лиды, CTO
@@ -70,10 +71,9 @@ public class Departemnt<T extends Employee> {
         return name + department;
     }
 
-    public List <T> uniqui(){
+    public void uniqui(){
         getHashSet().addAll(department);
         getDepartment().clear();
         getDepartment().addAll(getHashSet());
-        return getDepartment();
     }
 }

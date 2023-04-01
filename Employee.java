@@ -66,9 +66,9 @@ public class Employee implements Comparable<Employee> {
 
     //@Override
     public int compareTo(Employee employee) {
-        int nameOfcompare = employee.getName().compareTo(name);
+        int nameOfcompare = this.name.compareTo(employee.getName());
         if (nameOfcompare == 0) {
-            nameOfcompare = age - getAge();
+            nameOfcompare = this.age - employee.getAge();
         }
         return nameOfcompare;
     }
@@ -120,10 +120,10 @@ class Junior extends Employee {
         return super.hashCode();
     }
 
-    @Override
-    public int compareTo(Employee employee) {
-        return super.compareTo(employee);
-    }
+ //   @Override
+//    public int compareTo(Employee employee) {
+//        return super.compareTo(employee);
+//    }
 }
 
 class Senior extends Employee {
