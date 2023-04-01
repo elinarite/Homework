@@ -1,8 +1,5 @@
 package TaskWorkParamEmp2;
 
-import java.util.Comparator;
-import java.util.List;
-
 public class Main {
 
 
@@ -14,26 +11,22 @@ public class Main {
         Junior junior5 = new Junior("Anna", 5);
         Junior junior6 = new Junior("Anna", 6);
 
-     //  Comparator<Junior> comparatorPair = new StringComparator();
 
 
-        Departemnt<Junior> juniorDepartemnt = new Departemnt<>("Junior");
+        EmployeeList<Junior> juniorList = new EmployeeList<>("Junior");
 
-        juniorDepartemnt.add(junior1);
-        juniorDepartemnt.add(junior2);
-        juniorDepartemnt.add(junior3);
-        juniorDepartemnt.add(junior4);
-        juniorDepartemnt.add(junior5);
-        juniorDepartemnt.uniqui();
+        juniorList.add(junior1);
+        juniorList.add(junior2);
+        juniorList.add(junior3);
+        juniorList.add(junior4);
+        juniorList.add(junior5);
+        System.out.println(juniorList);
+        juniorList.remove(junior3);
+        System.out.println(juniorList);
+        juniorList.print();
 
-        System.out.println(juniorDepartemnt);
-        juniorDepartemnt.remove(junior3);
-        System.out.println(juniorDepartemnt);
-        juniorDepartemnt.read();
-        juniorDepartemnt.addRemove(junior6, junior5);
-        System.out.println(juniorDepartemnt);
-     //   System.out.println(juniorDepartemnt.sort());
-
+        juniorList.updateEmployeeName(junior1,"peter");
+        System.out.println(juniorList);
 
     }
 }

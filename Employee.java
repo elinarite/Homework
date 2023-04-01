@@ -1,16 +1,7 @@
 package TaskWorkParamEmp2;
 
-import Prof_Work.comporable.String_Integer;
-
-import java.io.UnsupportedEncodingException;
-import java.lang.invoke.MethodHandles;
-import java.nio.charset.Charset;
-import java.util.Locale;
 import java.util.Objects;
-import java.util.Optional;
-import java.util.function.Function;
-import java.util.stream.IntStream;
-import java.util.stream.Stream;
+
 
 public class Employee implements Comparable<Employee> {
 
@@ -50,8 +41,8 @@ public class Employee implements Comparable<Employee> {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Employee employee)) return false;
-        return age == employee.age && Objects.equals(name, employee.name);
+        if (!(o instanceof Employee)) return false;
+        return age == ((Employee) o).getAge() && Objects.equals(name, ((Employee) o).getName());
     }
 
     @Override
@@ -66,100 +57,9 @@ public class Employee implements Comparable<Employee> {
 
     //@Override
     public int compareTo(Employee employee) {
-        int nameOfcompare = this.name.compareTo(employee.getName());
-        if (nameOfcompare == 0) {
-            nameOfcompare = this.age - employee.getAge();
+        if (this.name.compareTo(employee.getName()) == 0) {
+           return this.age - employee.getAge();
         }
-        return nameOfcompare;
-    }
-}
-
-class Manager extends Employee {
-    public Manager(String name, int age) {
-        super(name, age);
-    }
-
-    public boolean equals(Object o) {
-        return super.equals(o);
-    }
-
-    @Override
-    public int hashCode() {
-        return super.hashCode();
-    }
-}
-
-class Middle extends Employee {
-    public Middle(String name, int age) {
-        super(name, age);
-    }
-
-    public boolean equals(Object o) {
-        return super.equals(o);
-    }
-
-    @Override
-    public int hashCode() {
-        return super.hashCode();
-    }
-}
-
-class Junior extends Employee {
-
-    public Junior(String name, int age) {
-        super(name, age);
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        return super.equals(o);
-    }
-
-    @Override
-    public int hashCode() {
-        return super.hashCode();
-    }
-
- //   @Override
-//    public int compareTo(Employee employee) {
-//        return super.compareTo(employee);
-//    }
-}
-
-class Senior extends Employee {
-    public Senior(String name, int age) {
-        super(name, age);
-    }
-
-    public boolean equals(Object o) {
-        return super.equals(o);
-    }
-
-    @Override
-    public int hashCode() {
-        return super.hashCode();
-    }
-
-    public int compareTo(Employee employee) {
-        return super.compareTo(employee);
-    }
-}
-
-class TeamLead extends Employee {
-    public TeamLead(String name, int age) {
-        super(name, age);
-    }
-
-    public boolean equals(Object o) {
-        return super.equals(o);
-    }
-
-    @Override
-    public int hashCode() {
-        return super.hashCode();
-    }
-
-    public int compareTo(Employee employee) {
-        return super.compareTo(employee);
+        return this.name.compareTo(employee.getName());
     }
 }
