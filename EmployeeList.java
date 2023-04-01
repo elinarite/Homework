@@ -3,7 +3,7 @@ package TaskWorkParamEmp2;
 import java.util.*;
 
 
-public class EmployeeList <T extends Employee>{
+public class EmployeeList<T extends Employee> {
 
     //    - СОТРУДНИКИ
 //    Есть иерархия сотрудников
@@ -13,30 +13,7 @@ public class EmployeeList <T extends Employee>{
 //    сотрудников в отсортированном виде
 //    у класса должны быть методы RUD
 
-    private String nameOfPosition;
     Set<T> employeeList = new TreeSet<>();
-
-
-    public String getNameOfPosition() {
-
-        return nameOfPosition;
-    }
-
-    public void setNameOfPosition(String nameOfPosition) {
-        this.nameOfPosition = nameOfPosition;
-    }
-
-    public EmployeeList(String name) {
-        this.nameOfPosition = name;
-    }
-
-    public Set<T> getEmployeeList() {
-        return employeeList;
-    }
-
-    public void setEmployeeList(Set<T> employeeList) {
-        this.employeeList = employeeList;
-    }
 
     /**
      * displays a list of employees
@@ -55,7 +32,7 @@ public class EmployeeList <T extends Employee>{
     }
 
     /**
-     *removes an employee from the list
+     * removes an employee from the list
      */
     public void remove(T employee) {
         employeeList.remove(employee);
@@ -63,12 +40,13 @@ public class EmployeeList <T extends Employee>{
 
     /**
      * change employee name to new name
-     * @param employee employee whose name needs to be changed
+     *
+     * @param employee        employee whose name needs to be changed
      * @param newEmployeeName name to replace
      */
-    public void updateEmployeeName(T employee, String newEmployeeName){
-        for(T value : employeeList){
-            if(value.equals(employee)){
+    public void updateEmployeeName(T employee, String newEmployeeName) {
+        for (T value : employeeList) {
+            if (value.equals(employee)) {
                 employee.setName(newEmployeeName);
             }
         }
@@ -76,19 +54,32 @@ public class EmployeeList <T extends Employee>{
 
     /**
      * change employee age
-     * @param employee  employee whose age needs to be changed
+     *
+     * @param employee       employee whose age needs to be changed
      * @param newEmployeeAge age to replace
      */
 
-    public void updateEmployeeAge(T employee, int newEmployeeAge){
-        for(T value : employeeList){
-            if(value.equals(employee)){
+    public void updateEmployeeAge(T employee, int newEmployeeAge) {
+        for (T value : employeeList) {
+            if (value.equals(employee)) {
                 employee.setAge(newEmployeeAge);
             }
         }
     }
+
+    /**
+     * searches and print employee in the list by name
+     */
+    public void searchByName(String name) {
+        for (T employee : employeeList) {
+            if (employee.getName().equals(name)) {
+                System.out.println(employee);
+            }
+        }
+    }
+
     @Override
     public String toString() {
-        return nameOfPosition + employeeList;
+        return employeeList.toString();
     }
 }

@@ -39,18 +39,6 @@ public class Employee implements Comparable<Employee> {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Employee)) return false;
-        return age == ((Employee) o).getAge() && Objects.equals(name, ((Employee) o).getName());
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(name, age);
-    }
-
-    @Override
     public String toString() {
         return name + " " + age;
     }
